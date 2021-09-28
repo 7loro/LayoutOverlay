@@ -131,3 +131,4 @@ dependencyResolutionManagement {
         }
     }
 }
+include(":shared")
