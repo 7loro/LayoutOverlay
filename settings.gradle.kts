@@ -9,6 +9,7 @@ enableFeaturePreview("VERSION_CATALOGS")
 
 include(
     ":app",
+    ":feature:home"
 )
 
 // Sharing dependency versions
@@ -22,10 +23,10 @@ pluginManagement {
     plugins {
         val agpVersion: String by settings
         id ("com.android.application") version agpVersion
-        id ("com.android.library") version agpVersion
+        id ("com.android.library") version "7.1.0-alpha12"
 
         val kotlinVersion: String by settings
-        id ("org.jetbrains.kotlin.android") version kotlinVersion
+        id ("org.jetbrains.kotlin.android") version "1.6.0-M1"
         id ("org.jetbrains.kotlin.kapt") version kotlinVersion
         id ("org.jetbrains.kotlin.plugin.parcelize") version kotlinVersion
 
