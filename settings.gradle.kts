@@ -9,7 +9,9 @@ enableFeaturePreview("VERSION_CATALOGS")
 
 include(
     ":app",
-    ":feature:home"
+    ":feature:home",
+    ":feature:overlay",
+    ":shared"
 )
 
 // Sharing dependency versions
@@ -22,7 +24,7 @@ pluginManagement {
     }
     plugins {
         val agpVersion: String by settings
-        id ("com.android.application") version agpVersion
+        id ("com.android.application") version "7.1.0-alpha12"
         id ("com.android.library") version "7.1.0-alpha12"
 
         val kotlinVersion: String by settings
@@ -131,4 +133,3 @@ dependencyResolutionManagement {
         }
     }
 }
-include(":shared")
