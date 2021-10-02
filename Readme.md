@@ -7,7 +7,7 @@ Make a overlay window to show transparent shape to compare size with view, margi
     - Drag and drop to remove
     - Double click to open Activity
 - Various shape
-    - Rectangluar
+    - Rectangular
     - Square
     - Circle
 - Custom size, color, transparency
