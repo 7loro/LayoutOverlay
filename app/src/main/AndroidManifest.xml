@@ -23,7 +23,7 @@
         </activity>
 
         <service
-            android:name=".overlay.OverlayService"
+            android:name=".overlay.presentation.OverlayService"
             android:enabled="true"
             android:exported="true"/>
     </application>

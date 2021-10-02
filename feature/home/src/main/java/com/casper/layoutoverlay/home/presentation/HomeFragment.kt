@@ -14,12 +14,15 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.casper.layoutoverlay.home.R
 import com.casper.layoutoverlay.home.databinding.FragmentHomeBinding
-import com.casper.layoutoverlay.overlay.OverlayService
+import com.casper.layoutoverlay.overlay.domain.OverlayItem
+import com.casper.layoutoverlay.overlay.presentation.IOverlayService
+import com.casper.layoutoverlay.overlay.presentation.OverlayService
+import com.casper.layoutoverlay.overlay.presentation.Shape
 import com.casper.layoutoverlay.shared.delegate.viewBinding
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
     private val binding: FragmentHomeBinding by viewBinding()
-    private var overlayService: OverlayService? = null
+    private var overlayService: IOverlayService? = null
     private var bound = false
 
     private val connection = object : ServiceConnection {
@@ -92,8 +95,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
         runCatching {
             overlayService?.drawLayout(
-                dpToPx(width.toString().toFloat()),
-                dpToPx(height.toString().toFloat()),
+                OverlayItem(
+                    // TODO support multiple id, various type
+                    id = 0,
+                    Shape.Rect,
+                    dpToPx(width.toString().toFloat()),
+                    dpToPx(height.toString().toFloat())
+                )
             )
         }.onFailure {
             Toast.makeText(
