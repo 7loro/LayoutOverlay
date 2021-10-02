@@ -77,9 +77,9 @@ class OverlayWindowManager(private var context: Context) : OverlayWindow {
                         windowManager.updateViewLayout(view, params)
                     }
                 }
-                true
+                false
             }
-            overlayViewMap[inflatedView.hashCode()] = inflatedView
+            overlayViewMap[overlayItem.id] = inflatedView
             windowManager.addView(inflatedView, params)
             inflatedView
         }.onFailure {
