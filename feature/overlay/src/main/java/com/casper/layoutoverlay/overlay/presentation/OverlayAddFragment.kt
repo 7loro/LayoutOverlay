@@ -61,13 +61,6 @@ class OverlayAddFragment : Fragment(R.layout.fragment_overlay_add) {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        if (bound) {
-            requireActivity().unbindService(connection)
-        }
-    }
-
     // method to ask user to grant the Overlay permission
     private fun checkOverlayPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
