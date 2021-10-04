@@ -1,24 +1,25 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id(GradlePluginId.ANDROID_APPLICATION)
+    id(GradlePluginId.KOTLIN_ANDROID)
+    id(GradlePluginId.KOTLIN_KAPT)
 }
 
 android {
-    compileSdk = 31
+    compileSdk = AndroidConfig.COMPILE_SDK_VERSION
 
     defaultConfig {
-        applicationId = "com.casper.layoutoverlay"
-        minSdk = 21
-        targetSdk = 31
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = AndroidConfig.ID
+        minSdk = AndroidConfig.MIN_SDK_VERSION
+        targetSdk = AndroidConfig.TARGET_SDK_VERSION
+        versionCode = AndroidConfig.VERSION_CODE
+        versionName = AndroidConfig.VERSION_NAME
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = AndroidConfig.TEST_INSTRUMENTATION_RUNNER
     }
 
     buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
+        getByName(BuildType.RELEASE) {
+            isMinifyEnabled = BuildTypeRelease.isMinifyEnabled
             proguardFiles("proguard-android-optimize.txt", "proguard-rules.pro")
         }
     }
@@ -33,15 +34,21 @@ android {
 }
 
 dependencies {
+    implementation(project(":feature:service"))
     implementation(project(":feature:home"))
     implementation(project(":feature:overlay"))
+    implementation(project(":feature:calculator"))
+    implementation(project(":feature:settings"))
 
-    implementation("androidx.core:core-ktx:1.6.0")
-    implementation("androidx.appcompat:appcompat:1.3.1")
-    implementation("com.google.android.material:material:1.4.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.0")
-    implementation("androidx.navigation:navigation-fragment:2.3.5")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    api(libs.bundles.ktx)
+    api(libs.appcompat)
+    api(libs.material)
+    api(libs.constraintLayout)
+    api(libs.bundles.navigation)
+    api(libs.hilt)
+    kapt(libs.hilt.compiler)
+
+    testApi(libs.bundles.test)
+    testRuntimeOnly(libs.junit.jupiter.engine)
+    androidTestApi(libs.bundles.androidTest)
 }
