@@ -24,8 +24,8 @@ pluginManagement {
     }
     plugins {
         val agpVersion: String by settings
-        id ("com.android.application") version "7.1.0-alpha12"
-        id ("com.android.library") version "7.1.0-alpha12"
+        id ("com.android.application") version "7.1.0-alpha13"
+        id ("com.android.library") version "7.1.0-alpha13"
 
         val kotlinVersion: String by settings
         id ("org.jetbrains.kotlin.android") version "1.6.0-M1"
