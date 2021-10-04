@@ -44,7 +44,10 @@ class OverlayWindowManager(private var context: Context) : OverlayWindow {
         if (overlayView == null || (overlayView.windowToken == null && overlayView.parent == null)) {
             overlayView = inflateView(overlayItem)
         }
-        overlayView?.updateSize(overlayItem.width, overlayItem.height)
+        overlayView?.apply {
+            updateSize(overlayItem.width, overlayItem.height)
+            windowManager.updateViewLayout(this, layoutParams)
+        }
     }
 
     private fun inflateView(overlayItem: OverlayItem): OverlayView? {
