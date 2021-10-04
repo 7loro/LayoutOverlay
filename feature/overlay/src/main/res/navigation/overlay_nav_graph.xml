@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/overlayNavGraph"
+    app:startDestination="@id/overlayAddFragment">
+
+    <fragment
+        android:id="@+id/overlayAddFragment"
+        android:name="com.casper.layoutoverlay.overlay.presentation.OverlayAddFragment"
+        android:label="OverlayAddFragment" />
+
+</navigation>

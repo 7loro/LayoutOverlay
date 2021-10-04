@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeNavGraph"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:title="Home" />
+    <item
+        android:id="@+id/overlayNavGraph"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:title="Overlay" />
+    <item
+        android:id="@+id/calculatorNavGraph"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:title="Calculator" />
+    <item
+        android:id="@+id/settingsNavGraph"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:title="Settings" />
+</menu>

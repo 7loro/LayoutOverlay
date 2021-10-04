@@ -9,8 +9,11 @@ enableFeaturePreview("VERSION_CATALOGS")
 
 include(
     ":app",
+    ":feature:service",
     ":feature:home",
     ":feature:overlay",
+    ":feature:calculator",
+    ":feature:settings",
     ":shared"
 )
 

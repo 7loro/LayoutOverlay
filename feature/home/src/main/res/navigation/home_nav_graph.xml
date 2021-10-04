@@ -2,11 +2,11 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/homeNavGraph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/HomeFragment">
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/HomeFragment"
         android:name="com.casper.layoutoverlay.home.presentation.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="CalculatorFragment" />
 
 </navigation>
