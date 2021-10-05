@@ -20,18 +20,20 @@ android {
             proguardFiles("proguard-android-optimize.txt", "proguard-rules.pro")
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = AndroidConfig.KOTLIN_OPTION_JVM_TARGET
     }
 }
 
 dependencies {
-
     api(libs.bundles.ktx)
+    api(libs.bundles.navigation)
     api(libs.appcompat)
     api(libs.material)
     testApi(libs.bundles.test)
