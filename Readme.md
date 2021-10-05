@@ -1,3 +1,6 @@
+# LayoutOverlay
+[![actions](https://github.com/7loro/LayoutOverlay/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/7loro/LayoutOverlay/actions/workflows/main.yml)
+
 ## Overview
 Make a overlay window to show transparent shape to compare size with view, margin.
 
