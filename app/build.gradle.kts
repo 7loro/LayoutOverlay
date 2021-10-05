@@ -39,6 +39,7 @@ dependencies {
     implementation(project(":feature:overlay"))
     implementation(project(":feature:calculator"))
     implementation(project(":feature:settings"))
+    implementation(project(":shared"))
 
     api(libs.bundles.ktx)
     api(libs.appcompat)

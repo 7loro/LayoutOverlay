@@ -1,0 +1,10 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ListPreference
+        app:entries="@array/theme_names"
+        app:entryValues="@array/theme_keys"
+        app:key="@string/preference_key_theme"
+        app:defaultValue="@string/preference_theme_key_system"
+        app:title="@string/preference_title_theme" />
+
+</PreferenceScreen>

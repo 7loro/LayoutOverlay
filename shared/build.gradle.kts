@@ -33,10 +33,10 @@ android {
 }
 
 dependencies {
-
     api(libs.bundles.ktx)
     api(libs.appcompat)
     api(libs.material)
+    api(libs.preference)
     testApi(libs.bundles.test)
     testRuntimeOnly(libs.junit.jupiter.engine)
     androidTestApi(libs.bundles.androidTest)
