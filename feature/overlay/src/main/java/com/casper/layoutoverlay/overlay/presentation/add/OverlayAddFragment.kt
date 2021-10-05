@@ -1,4 +1,4 @@
-package com.casper.layoutoverlay.overlay.presentation
+package com.casper.layoutoverlay.overlay.presentation.add
 
 import android.content.ComponentName
 import android.content.Context
@@ -12,16 +12,32 @@ import android.util.TypedValue
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.casper.layoutoverlay.overlay.R
 import com.casper.layoutoverlay.overlay.databinding.FragmentOverlayAddBinding
-import com.casper.layoutoverlay.service.domain.OverlayItem
+import com.casper.layoutoverlay.overlay.domain.model.Overlay
+import com.casper.layoutoverlay.overlay.domain.model.toServiceModel
 import com.casper.layoutoverlay.service.presentation.IOverlayService
 import com.casper.layoutoverlay.service.presentation.OverlayService
 import com.casper.layoutoverlay.service.presentation.Shape
 import com.casper.layoutoverlay.shared.delegate.viewBinding
+import com.casper.layoutoverlay.shared.presentation.extension.observe
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class OverlayAddFragment : Fragment(R.layout.fragment_overlay_add) {
+
     private val binding: FragmentOverlayAddBinding by viewBinding()
+    private val viewModel: OverlayAddViewModel by viewModels()
+    private val stateObserver = Observer<OverlayAddViewModel.ViewState> {
+        if (it.isSaved) {
+            val action =
+                OverlayAddFragmentDirections.actionOverlayAddFragmentToOverlayListFragment()
+            findNavController().navigate(action)
+        }
+    }
     private var overlayService: IOverlayService? = null
     private var bound = false
 
@@ -41,8 +57,11 @@ class OverlayAddFragment : Fragment(R.layout.fragment_overlay_add) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        checkOverlayPermission();
+        checkOverlayPermission()
+        initialize()
+    }
 
+    private fun initialize() {
         binding.drawButton.setOnClickListener {
             if (bound) {
                 drawLayout()
@@ -59,6 +78,7 @@ class OverlayAddFragment : Fragment(R.layout.fragment_overlay_add) {
                 bindService()
             }
         }
+        observe(viewModel.stateLiveData, stateObserver)
     }
 
     // method to ask user to grant the Overlay permission
@@ -89,15 +109,14 @@ class OverlayAddFragment : Fragment(R.layout.fragment_overlay_add) {
             ).show()
         }
         runCatching {
-            overlayService?.drawLayout(
-                OverlayItem(
-                    // TODO support multiple id, various type
-                    id = 0,
-                    Shape.Rect,
-                    dpToPx(width.toString().toFloat()),
-                    dpToPx(height.toString().toFloat())
-                )
-            )
+            Overlay(
+                shape = Shape.Rect,
+                widthDp = binding.widthInput.text.toString().toInt(),
+                heightDp = binding.heightInput.text.toString().toInt()
+            ).apply {
+                overlayService?.drawLayout(toServiceModel(requireContext()))
+                viewModel.addOverlay(this)
+            }
         }.onFailure {
             Toast.makeText(
                 requireContext(),

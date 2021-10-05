@@ -1,6 +1,7 @@
 plugins {
     id(GradlePluginId.ANDROID_APPLICATION)
     id(GradlePluginId.KOTLIN_ANDROID)
+    id(GradlePluginId.SAFE_ARGS)
     id(GradlePluginId.KOTLIN_KAPT)
     id(GradlePluginId.HILT)
 }

@@ -45,7 +45,7 @@ class OverlayWindowManager(private var context: Context) : OverlayWindow {
             overlayView = inflateView(overlayItem)
         }
         overlayView?.apply {
-            updateSize(overlayItem.width, overlayItem.height)
+            updateSize(overlayItem.widthPx, overlayItem.heightPx)
             windowManager.updateViewLayout(this, layoutParams)
         }
     }
