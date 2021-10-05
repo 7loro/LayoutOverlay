@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="preference_key_theme" translatable="false">theme</string>
+
+    <string name="preference_theme_key_dark" translatable="false">dark</string>
+    <string name="preference_theme_key_light" translatable="false">light</string>
+    <string name="preference_theme_key_system" translatable="false">system_default</string>
+
+    <string name="preference_theme_name_dark">Dark</string>
+    <string name="preference_theme_name_light">Light</string>
+    <string name="preference_theme_name_system">System default</string>
+
+    <string-array name="theme_names">
+        <item>@string/preference_theme_name_dark</item>
+        <item>@string/preference_theme_name_light</item>
+        <item>@string/preference_theme_name_system</item>
+    </string-array>
+    <string-array name="theme_keys">
+        <item>@string/preference_theme_key_dark</item>
+        <item>@string/preference_theme_key_light</item>
+        <item>@string/preference_theme_key_system</item>
+    </string-array>
+</resources>

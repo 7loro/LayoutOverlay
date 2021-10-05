@@ -83,6 +83,7 @@ dependencyResolutionManagement {
             alias("lifecycle").to("androidx.lifecycle:lifecycle-common-java8:2.+")
             alias("cardview").to("androidx.cardview:cardview:1.+")
             alias("lottie").to("com.airbnb.android:lottie:2.+")
+            alias("preference").to("androidx.preference:preference-ktx:1.+")
 
             val hiltVersion: String by settings
             version("hilt", hiltVersion)
