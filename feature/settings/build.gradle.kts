@@ -1,6 +1,8 @@
 plugins {
     id(GradlePluginId.ANDROID_LIBRARY)
     id(GradlePluginId.KOTLIN_ANDROID)
+    id(GradlePluginId.KOTLIN_KAPT)
+    id(GradlePluginId.HILT)
 }
 
 android {
@@ -38,6 +40,9 @@ dependencies {
     api(libs.appcompat)
     api(libs.material)
     api(libs.preference)
+    api(libs.hilt)
+    kapt(libs.hilt.compiler)
+
     testApi(libs.bundles.test)
     testRuntimeOnly(libs.junit.jupiter.engine)
     androidTestApi(libs.bundles.androidTest)

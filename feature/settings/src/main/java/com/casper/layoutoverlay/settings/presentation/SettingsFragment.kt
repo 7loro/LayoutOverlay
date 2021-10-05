@@ -7,12 +7,13 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.casper.layoutoverlay.settings.R
 import com.casper.layoutoverlay.shared.ThemeProvider
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class SettingsFragment : PreferenceFragmentCompat() {
 
-    private val themeProvider by lazy {
-        ThemeProvider.getInstance(requireContext())
-    }
+    @Inject lateinit var themeProvider: ThemeProvider
     private val themePreference by lazy {
         findPreference<ListPreference>(getString(ThemeProvider.PREF_KEY_THEME_RESOURCE_ID))
     }

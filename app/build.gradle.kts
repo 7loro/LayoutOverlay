@@ -2,6 +2,7 @@ plugins {
     id(GradlePluginId.ANDROID_APPLICATION)
     id(GradlePluginId.KOTLIN_ANDROID)
     id(GradlePluginId.KOTLIN_KAPT)
+    id(GradlePluginId.HILT)
 }
 
 android {
