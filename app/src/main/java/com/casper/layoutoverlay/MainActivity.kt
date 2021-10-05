@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setTheme() {
-        val theme = ThemeProvider(this).getThemeFromPreferences()
+        val theme = ThemeProvider.getInstance(this).getThemeFromPreferences()
         AppCompatDelegate.setDefaultNightMode(theme)
     }
 }

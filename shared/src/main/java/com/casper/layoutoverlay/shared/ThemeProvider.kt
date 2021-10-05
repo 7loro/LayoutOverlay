@@ -1,16 +1,17 @@
 package com.casper.layoutoverlay.shared
 
+import android.annotation.SuppressLint
 import android.content.Context
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.PreferenceManager
 import java.security.InvalidParameterException
 
-class ThemeProvider(private val context: Context) {
+class ThemeProvider private constructor(private val context: Context) {
 
     fun getThemeFromPreferences(): Int {
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
         val selectedTheme = sharedPreferences.getString(
-            context.getString(R.string.preference_key_theme),
+            context.getString(PREF_KEY_THEME_RESOURCE_ID),
             context.getString(R.string.preference_theme_key_system)
         )
 
@@ -32,4 +33,19 @@ class ThemeProvider(private val context: Context) {
             context.getString(R.string.preference_theme_key_light) -> context.getString(R.string.preference_theme_name_light)
             else -> context.getString(R.string.preference_theme_name_system)
         }
+
+    companion object {
+        @SuppressLint("StaticFieldLeak")
+        @Volatile
+        private var INSTANCE: ThemeProvider? = null
+
+        val PREF_KEY_THEME_RESOURCE_ID = R.string.preference_key_theme
+
+        fun getInstance(context: Context): ThemeProvider =
+            INSTANCE ?: synchronized(this) {
+                INSTANCE ?: ThemeProvider(context).also {
+                    INSTANCE = it
+                }
+            }
+    }
 }

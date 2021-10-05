@@ -11,10 +11,10 @@ import com.casper.layoutoverlay.shared.ThemeProvider
 class SettingsFragment : PreferenceFragmentCompat() {
 
     private val themeProvider by lazy {
-        ThemeProvider(requireContext())
+        ThemeProvider.getInstance(requireContext())
     }
     private val themePreference by lazy {
-        findPreference<ListPreference>(getString(com.casper.layoutoverlay.shared.R.string.preference_key_theme))
+        findPreference<ListPreference>(getString(ThemeProvider.PREF_KEY_THEME_RESOURCE_ID))
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
