@@ -2,11 +2,24 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/overlayNavGraph"
-    app:startDestination="@id/overlayAddFragment">
+    app:startDestination="@id/overlayListFragment">
+
+    <fragment
+        android:id="@+id/overlayListFragment"
+        android:name="com.casper.layoutoverlay.overlay.presentation.list.OverlayListFragment"
+        android:label="OverlayListFragment">
+        <action
+            android:id="@+id/actionOverlayListFragmentToOverlayAddFragment"
+            app:destination="@id/overlayAddFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/overlayAddFragment"
-        android:name="com.casper.layoutoverlay.overlay.presentation.OverlayAddFragment"
-        android:label="OverlayAddFragment" />
+        android:name="com.casper.layoutoverlay.overlay.presentation.add.OverlayAddFragment"
+        android:label="OverlayAddFragment">
+        <action
+            android:id="@+id/actionOverlayAddFragmentToOverlayListFragment"
+            app:destination="@id/overlayListFragment" />
+    </fragment>
 
 </navigation>

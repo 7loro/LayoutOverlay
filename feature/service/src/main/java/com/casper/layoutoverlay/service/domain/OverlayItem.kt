@@ -5,6 +5,6 @@ import com.casper.layoutoverlay.service.presentation.Shape
 data class OverlayItem(
     val id: Int,
     val shape: Shape,
-    var width: Int,
-    var height: Int
+    var widthPx: Int,
+    var heightPx: Int
 )
