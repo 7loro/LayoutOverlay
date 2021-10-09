@@ -1,6 +1,7 @@
 plugins {
     id(GradlePluginId.ANDROID_LIBRARY)
     id(GradlePluginId.KOTLIN_ANDROID)
+    id(GradlePluginId.KTLINT_GRADLE)
 }
 
 android {
