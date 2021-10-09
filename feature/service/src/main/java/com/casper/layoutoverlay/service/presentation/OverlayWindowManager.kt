@@ -86,7 +86,7 @@ class OverlayWindowManager(private var context: Context) : OverlayWindow {
             windowManager.addView(inflatedView, params)
             inflatedView
         }.onFailure {
-            Log.e(TAG, "inflateView Error ${it.message.toString()}")
+            Log.e(TAG, "inflateView Error ${it.message}")
         }.getOrNull()
     }
 
@@ -99,7 +99,7 @@ class OverlayWindowManager(private var context: Context) : OverlayWindow {
                 (parent as ViewGroup).removeAllViews()
             }
         }.onFailure {
-            Log.e(TAG, "close $overlayItem Error ${it.message.toString()}")
+            Log.e(TAG, "close $overlayItem Error ${it.message}")
         }
     }
 
@@ -113,7 +113,7 @@ class OverlayWindowManager(private var context: Context) : OverlayWindow {
                 (overlayView.parent as ViewGroup).removeAllViews()
             }
         }.onFailure {
-            Log.e(TAG, "closeAll Error ${it.message.toString()}")
+            Log.e(TAG, "closeAll Error ${it.message}")
         }
     }
 

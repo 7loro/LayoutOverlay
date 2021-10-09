@@ -36,12 +36,11 @@ class OverlayAddFragment : Fragment(R.layout.fragment_overlay_add) {
         override fun onServiceDisconnected(className: ComponentName) {
             bound = false
         }
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        checkOverlayPermission();
+        checkOverlayPermission()
 
         binding.drawButton.setOnClickListener {
             if (bound) {
