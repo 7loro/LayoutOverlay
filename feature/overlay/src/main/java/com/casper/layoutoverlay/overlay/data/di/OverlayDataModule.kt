@@ -26,7 +26,6 @@ abstract class OverlayDataModule {
         repository: OverlayRepositoryImpl
     ): OverlayRepository
 
-
     @InstallIn(SingletonComponent::class)
     @Module
     internal object DatabaseModule {

@@ -16,7 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class OverlayListViewModel @Inject constructor(
     private val getOverlayUseCase: GetOverlayUseCase
-) : BaseViewModel<OverlayListViewModel.ViewState, OverlayListViewModel.Action>(ViewState()){
+) : BaseViewModel<OverlayListViewModel.ViewState, OverlayListViewModel.Action>(ViewState()) {
 
     private val _overlayItems = MutableLiveData<List<OverlayItem>>()
     private val overlayItems: LiveData<List<OverlayItem>> = _overlayItems

@@ -41,6 +41,5 @@ class ThemeProvider @Inject constructor(
     companion object {
 
         val PREF_KEY_THEME_RESOURCE_ID = R.string.preference_key_theme
-
     }
 }

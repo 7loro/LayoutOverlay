@@ -6,7 +6,7 @@ import android.view.GestureDetector
 import android.view.MotionEvent
 import android.widget.RelativeLayout
 import androidx.core.view.GestureDetectorCompat
-import com.casper.layoutoverlay.shared.ktx.startMainActivity
+import com.casper.layoutoverlay.shared.presentation.extension.startMainActivity
 
 class OverlayView(context: Context, attrs: AttributeSet) : RelativeLayout(context, attrs) {
 
