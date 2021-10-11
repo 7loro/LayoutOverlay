@@ -4,6 +4,7 @@ plugins {
     id(GradlePluginId.SAFE_ARGS)
     id(GradlePluginId.KOTLIN_KAPT)
     id(GradlePluginId.HILT)
+    id(GradlePluginId.KTLINT_GRADLE)
 }
 
 android {

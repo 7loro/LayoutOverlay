@@ -14,12 +14,16 @@ class AddOverlayUseCase @Inject constructor(
 
     suspend fun execute(overlay: Overlay): Result {
         return runCatching {
-            Result.Success(overlayRepository.addOverlayItem(Overlay(
-                id = overlay.id,
-                shape = overlay.shape,
-                widthDp = overlay.widthDp,
-                heightDp = overlay.heightDp
-            )))
+            Result.Success(
+                overlayRepository.addOverlayItem(
+                    Overlay(
+                        id = overlay.id,
+                        shape = overlay.shape,
+                        widthDp = overlay.widthDp,
+                        heightDp = overlay.heightDp
+                    )
+                )
+            )
         }.getOrElse {
             Result.Error(it)
         }

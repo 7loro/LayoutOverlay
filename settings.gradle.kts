@@ -27,19 +27,22 @@ pluginManagement {
     }
     plugins {
         val agpVersion: String by settings
-        id ("com.android.application") version "7.1.0-alpha13"
-        id ("com.android.library") version "7.1.0-alpha13"
+        id("com.android.application") version "7.1.0-alpha13"
+        id("com.android.library") version "7.1.0-alpha13"
 
         val kotlinVersion: String by settings
-        id ("org.jetbrains.kotlin.android") version "1.6.0-M1"
-        id ("org.jetbrains.kotlin.kapt") version kotlinVersion
-        id ("org.jetbrains.kotlin.plugin.parcelize") version kotlinVersion
+        id("org.jetbrains.kotlin.android") version "1.6.0-M1"
+        id("org.jetbrains.kotlin.kapt") version kotlinVersion
+        id("org.jetbrains.kotlin.plugin.parcelize") version kotlinVersion
 
         val androidJUnit5Version: String by settings
         id("de.mannodermaus.android-junit5") version androidJUnit5Version
 
         val hiltVersion: String by settings
         id("dagger.hilt.android.plugin") version hiltVersion
+
+        val ktlintGradleVersion: String by settings
+        id("org.jlleitschuh.gradle.ktlint") version ktlintGradleVersion
     }
     resolutionStrategy {
         eachPlugin {

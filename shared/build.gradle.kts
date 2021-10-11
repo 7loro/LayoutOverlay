@@ -3,6 +3,7 @@ plugins {
     id(GradlePluginId.KOTLIN_ANDROID)
     id(GradlePluginId.KOTLIN_KAPT)
     id(GradlePluginId.HILT)
+    id(GradlePluginId.KTLINT_GRADLE)
 }
 
 android {
